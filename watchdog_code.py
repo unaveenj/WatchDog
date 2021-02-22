@@ -8,9 +8,15 @@ from test import erase_file
 string = ""
 class MyHandler(FileSystemEventHandler):
     def on_modified(self, event):
-        print("Modified")
+        # print("Modified")
+        # erase_file()
         string = read_file()
-        print string
+        if string == '':
+            pass
+        else:
+            print("Modified")
+            print string
+        erase_file()
 
 
 if __name__ == "__main__":
@@ -22,8 +28,9 @@ if __name__ == "__main__":
     observer.start()
     try:
         while True:
-            time.sleep(1)
-            append_file()
+            time.sleep(5)
+            # erase_file()
+            # append_file()
     except KeyboardInterrupt:
         observer.stop()
         erase_file()
